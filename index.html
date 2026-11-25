@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StyleNest - Fashion Store</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f8f8f8;
+    color: #333;
+}
+
+/* NAVBAR */
+
+.navbar {
+    height: 70px;
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #222;
+    margin-right: 40px;
+}
+
+.logo span {
+    color: #e91e63;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+}
+
+.nav-links a:hover {
+    color: #e91e63;
+}
+
+.search-box {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    background: #f2f2f2;
+    border-radius: 20px;
+    padding: 8px 15px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 180px;
+}
+
+.icons {
+    display: flex;
+    gap: 18px;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+/* MAIN */
+
+.main-container {
+    display: flex;
+    padding: 30px 40px;
+    gap: 30px;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 220px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    height: fit-content;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.sidebar h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.filter-group {
+    margin-bottom: 25px;
+}
+
+.filter-group h3 {
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.filter-group label {
+    display: block;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.sizes {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.size {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.size:hover {
+    background: #e91e63;
+    color: white;
+}
+
+.colors {
+    display: flex;
+    gap: 10px;
+}
+
+.colors span {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+.black {
+    background: black;
+}
+
+.white {
+    background: white;
+}
+
+.red {
+    background: red;
+}
+
+.blue {
+    background: blue;
+}
+
+.pink {
+    background: pink;
+}
+
+.purple {
+    background: purple;
+}
+
+.filter-btn {
+    width: 100%;
+    padding: 10px;
+    background: #e91e63;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.filter-btn:hover {
+    background: #c2185b;
+}
+
+/* PRODUCTS */
+
+.products-section {
+    flex: 1;
+}
+
+.products-section h1 {
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    position: relative;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.discount {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #e91e63;
+    color: white;
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.heart {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product-info h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.product-info p {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e91e63;
+}
+
+.old-price {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 13px;
+    margin-left: 8px;
+}
+
+.add-cart {
+    margin-top: 12px;
+    width: 100%;
+    padding: 9px;
+    border: none;
+    background: #222;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-cart:hover {
+    background: #e91e63;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .main-container {
+        padding: 20px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 15px;
+    }
+
+    .logo {
+        margin-right: 10px;
+    }
+
+    .search-box {
+        display: none;
+    }
+
+    .main-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        Style<span>Nest</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Men</a>
+        <a href="#">Women</a>
+        <a href="#">Accessories</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <div class="search-box">
+        <input type="text" placeholder="Search products...">
+        🔍
+    </div>
+
+    <div class="icons">
+        <span>👤</span>
+        <span>♡</span>
+        <span>🛒</span>
+    </div>
+
+</nav>
+
+
+<!-- MAIN CONTAINER -->
+
+<div class="main-container">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <h2>Filters</h2>
+
+        <div class="filter-group">
+            <h3>Gender</h3>
+
+            <label>
+                <input type="checkbox">
+                Men
+            </label>
+
+            <label>
+                <input type="checkbox">
+                Women
+            </label>
+
+            <label>
+                <input type="checkbox">
+                Unisex
+            </label>
+        </div>
+
+
+        <div class="filter-group">
+
+            <h3>Size</h3>
+
+            <div class="sizes">
+
+                <span class="size">XS</span>
+                <span class="size">S</span>
+                <span class="size">M</span>
+                <span class="size">L</span>
+                <span class="size">XL</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="filter-group">
+
+            <h3>Colour</h3>
+
+            <div class="colors">
+
+                <span class="black"></span>
+                <span class="white"></span>
+                <span class="red"></span>
+                <span class="blue"></span>
+                <span class="pink"></span>
+                <span class="purple"></span>
+
+            </div>
+
+        </div>
+
+
+        <button class="filter-btn">
+            Apply Filters
+        </button>
+
+    </aside>
+
+
+    <!-- PRODUCTS -->
+
+    <section class="products-section">
+
+        <h1>Best Picks For You</h1>
+
+        <div class="products">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div class="product-card">
+
+                <span class="discount">30% OFF</span>
+
+                <div class="heart">♡</div>
+
+                <img
+                    src="oversized_hoodie.jpg.jpeg"
+                    alt="Oversized Hoodie"
+                    class="product-image"
+                >
+
+                <div class="product-info">
+
+                    <h3>Oversized Hoodie</h3>
+
+                    <p>Comfortable casual hoodie</p>
+
+                    <span class="price">₹999</span>
+                    <span class="old-price">₹1,499</span>
+
+                    <button class="add-cart">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+
+            <div class="product-card">
+
+                <span class="discount">25% OFF</span>
+
+                <div class="heart">♡</div>
+
+                <img
+                    src="crop_top.jpg.jpeg"
+                    alt="Crop Top"
+                    class="product-image"
+                >
+
+                <div class="product-info">
+
+                    <h3>Crop Top</h3>
+
+                    <p>Stylish everyday crop top</p>
+
+                    <span class="price">₹599</span>
+                    <span class="old-price">₹799</span>
+
+                    <button class="add-cart">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+
+            <div class="product-card">
+
+                <span class="discount">20% OFF</span>
+
+                <div class="heart">♡</div>
+
+                <img
+                    src="wide_leg_jeans.jpg.jpeg"
+                    alt="Wide Leg Jeans"
+                    class="product-image"
+                >
+
+                <div class="product-info">
+
+                    <h3>Wide Leg Jeans</h3>
+
+                    <p>Trendy wide leg denim</p>
+
+                    <span class="price">₹1,299</span>
+                    <span class="old-price">₹1,699</span>
+
+                    <button class="add-cart">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+
+            <div class="product-card">
+
+                <span class="discount">15% OFF</span>
+
+                <div class="heart">♡</div>
+
+                <img
+                    src="casual_sneakers.jpg.jpeg"
+                    alt="Casual Sneakers"
+                    class="product-image"
+                >
+
+                <div class="product-info">
+
+                    <h3>Casual Sneakers</h3>
+
+                    <p>Comfortable everyday sneakers</p>
+
+                    <span class="price">₹1,499</span>
+                    <span class="old-price">₹1,799</span>
+
+                    <button class="add-cart">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 5 -->
+
+            <div class="product-card">
+
+                <span class="discount">35% OFF</span>
+
+                <div class="heart">♡</div>
+
+                <img
+                    src="shoulder_bag.jpg.jpeg"
+                    alt="Shoulder Bag"
+                    class="product-image"
+                >
+
+                <div class="product-info">
+
+                    <h3>Shoulder Bag</h3>
+
+                    <p>Elegant everyday shoulder bag</p>
+
+                    <span class="price">₹899</span>
+                    <span class="old-price">₹1,399</span>
+
+                    <button class="add-cart">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</div>
+
+</body>
+</html>
